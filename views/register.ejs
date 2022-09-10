@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<%- include('./partials/head') %>
+
+  <body>
+    <%- include('./partials/navbar') %>
+      <%- include('./partials/header') %>
+        <main>
+
+          <form action="" method="post">
+            <div class="form__box">
+              <label style="color:black" for="name">Nombre</label>
+              <input class="form__input" type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : null %>">
+              <p style="color:red;font-size: 16px;"><%= locals.errors && errors.name ? errors.name.msg : null%>
+              </p>
+            </div>
+            <div class="form__box">
+              <label style="color:black" for="lastname">Apellido</label>
+              <input class="form__input" type="text" name="lastname" id="lastname">
+              <p style="color:red;font-size: 16px;">
+                <%= locals.errors && errors.lastname ? errors.lastname.msg : null%>
+              </p>
+            </div>
+            <div class="form__box">
+              <label style="color:black" for="email">Correo electrónico</label>
+              <input class="form__input" type="email" name="email" id="email"
+                value="<%= locals.old && old.email ? old.email : null %>">
+              <p style="color:red;font-size: 16px;">
+                <%= locals.errors && errors.email ? errors.email.msg : null%>
+              </p>
+            </div>
+            <div class="form__box">
+              <label style="color:black" for="password">Contraseña</label>
+              <input class="form__input" type="password" name="password" id="password">
+              <p style="color:red;font-size: 16px;">
+                <%= locals.errors && errors.password ? errors.password.msg : null%>
+              </p>
+            </div>
+            <div class="form__box">
+              <button type="submit">Registrarse</button>
+            </div>
+          </form>
+        </main>
+  </body>
+
+</html>
